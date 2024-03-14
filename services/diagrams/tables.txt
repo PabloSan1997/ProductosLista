@@ -1,0 +1,27 @@
+Table Productos{
+  id uuid [primary key]
+  nombre varchar(200)
+  precio numeric(8,2)
+  puntos integer
+}
+
+Table Miembros{
+  id uuid [primary key]
+  nombre varchar(300)
+  total numeric(8,2)
+  puntos numeric(10,2)
+}
+
+Table Cantidad{
+  id uuid [primary key]
+  cantidad integer
+  precio numeric(8,2)
+  puntos integer
+  idMiembros uuid
+  idProducto uuid
+  cuenta varchar(100)
+}
+
+
+Ref: Miembros.id < Cantidad.idMiembros
+Ref: Cantidad.idProducto > Productos.id
