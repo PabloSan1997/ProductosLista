@@ -1,10 +1,9 @@
-import { Repository } from "typeorm";
 import { AppDataSource } from "../db/config";
-import { Product } from "../db/models/Product";
+import { Producto } from "../db/models/Product";
 
 
 export class ProductoRepository{
-    private product:Repository<Product> = AppDataSource.getRepository(Product)
+    private product= AppDataSource.getRepository(Producto)
     async findProducts(){
         return this.product.find();
     }
@@ -15,5 +14,9 @@ export class ProductoRepository{
         const producto = this.product.create(newProduct);
         await this.product.save(producto);
         return producto;
+    }
+
+    async borrarProducto(id_product:string){
+        this.product.delete({id:id_product});
     }
 }

@@ -22,4 +22,12 @@ export class ProductoController {
             next(error);
         }
     }
+    async elimanarProducto(req: Request, res: Response, next: NextFunction){
+        try {
+            await servicio.eliminarProducto(req.params.id_product);
+            res.sendStatus(204);
+        } catch (error) {
+            next(error);
+        }
+    }
 }

@@ -7,3 +7,4 @@ const controller = new ProductoController();
 
 productRoutes.get('/', controller.findProducts);
 productRoutes.post('/', controller.generarProducto);
+productRoutes.delete('/:id_product', controller.elimanarProducto);

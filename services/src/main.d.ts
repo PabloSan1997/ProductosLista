@@ -13,15 +13,13 @@ interface AddProducto {
 
 interface MiembrosInterface {
     id: string;
-    nombre: number;
+    nombre: string;
     total: number;
     puntos: number;
 }
 
 interface AddMiembro {
-    nombre: number;
-    total: number;
-    puntos: number;
+    nombre: string;
 }
 
 interface CantidadInterface {

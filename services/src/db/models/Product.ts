@@ -1,15 +1,19 @@
-import { Entity, PrimaryGeneratedColumn, Column } from 'typeorm';
+import { Entity, PrimaryGeneratedColumn, Column, OneToMany } from 'typeorm';
+import { Cantidad } from './Cantidad';
 
 @Entity()
-export class Product {
+export class Producto {
     @PrimaryGeneratedColumn('uuid')
     id: string;
     @Column({ length: 200 })
     nombre: string;
 
-    @Column({ type: 'numeric', precision: 8, scale: 2 })
+    @Column({ type: 'float' })
     precio: number;
 
     @Column({ type: 'integer' })
     puntos: number;
+
+    @OneToMany(()=>Cantidad, (cantidad)=>cantidad.producto)
+    cantidad:Cantidad[];
 }
